@@ -79,7 +79,7 @@ class Textbook : public Book
     @post     : displays Textbook data in the form:
     "[title_] is written by [author_] for [grade_level] students. Subject: [subject]. [It has/ It does not have] review questions. Page Count: [page_count_]. [It is / It is not] available digitally.\n" 
     */ 
-    void display() override; 
+    virtual void display() override; 
     /**
     EXAMPLE:
     Calculus: Early Transcendentals written by James Stewart for COLLEGE students. Subject: mathematics. It has review questions. Page Count: 867. It is available digitally.
@@ -89,7 +89,7 @@ class Textbook : public Book
     @param    : a reference to a string key to match the subject of the Textbook
     @post     : calls display() if the key argument is equal to subject_ (e.g. "mathematics")   
     */
-     void displayFilter(const std::string &key) override;
+    virtual void displayFilter(const std::string &key) override;
 
   private:
     std::string subject_; // a string the represents the subject of the book
