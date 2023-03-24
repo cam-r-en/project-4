@@ -98,13 +98,13 @@ class Book{
         @post     : displays Book data in the form:
         "[title_] is written by [author_]. Page Count: [page_count_]. [It is / It is not] available digitally.\n"     
     */
-    virtual void display() = 0;
+    virtual void display() const = 0;
 
     /**
         @param:  A reference to a string key
         @post:   Display book data if key argument matches (key match will be subclass specific) 
     */
-    virtual void displayFilter(const std::string &key) = 0;
+    virtual void displayFilter(const std::string &key) const = 0;
 
 
 	private:

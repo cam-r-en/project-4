@@ -140,9 +140,6 @@ void LibraryRecord::operator/=(LibraryRecord& a_library_record)
   }
 }
 
-
-
-
  /**
         @param:   A reference to another LibraryRecord object
         @post:    Combines the contents from both LibraryRecord objects, including duplicates.

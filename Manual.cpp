@@ -128,9 +128,13 @@ void Manual::setVisualAid(const bool& aid)
   @post     : displays Manual data in the form:
   "[title_] is written by [author] company for device: [device]. Website: [website / NONE]. Page Count: [page_count_]. [It is / It is not] available digitally.\n"  
 */  
-void Manual::display()
+void Manual::display() const
 {
-  std::cout << getTitle() << " is written by " << getAuthor() << " company for device: " << getDevice() << ". ";
+  std::string mod;
+  int nd = getDevice().find("-");
+  mod = getDevice().substr(0,nd);
+  
+  std::cout << getTitle() << " is written by " << getAuthor() << " company for device: " << mod << ". ";
   if(has_website_)
   {
     std::cout << "Website: " << getWebsite() << ". ";
@@ -156,9 +160,12 @@ void Manual::display()
   @param    : a reference to a string key to match the device of the Manual
   @post     : calls display() if the key argument is equal to device_ (e.g. "Oven")   
 */
-void Manual::displayFilter(const std::string &key)
+void Manual::displayFilter(const std::string& key) const
 {
-  if(key == device_)
+  std::string mod;
+  int nd = getDevice().find("-");
+  mod = getDevice().substr(0,nd);
+  if(key == mod)
   {
     display();
   }

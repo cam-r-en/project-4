@@ -157,7 +157,7 @@ void Novel::calculateAverageRating()
   @post     : displays Novel data in the form:
   "[title_] is written by [author_]. Genre: [genre]. [It has/ It does not have] a film adaptation. Page Count: [page_count_]. [It is / It is not] available digitally.\n"     
 */
-void Novel::display()
+void Novel::display() const
 {
   std::cout << getTitle() << " is written by " << getAuthor() << ". Genre: " << genre_ << ". "; 
   if (has_film_adaptation_) 
@@ -185,8 +185,8 @@ void Novel::display()
 /**
   @param    : a reference to a string key to match the genre of the Novel
   @post     : calls display() if the key argument is equal to genre_ (e.g. "horror")   
-  */
-void Novel::displayFilter(const std::string &key)
+*/
+void Novel::displayFilter(const std::string &key) const
 {
   if(key == genre_)
   {

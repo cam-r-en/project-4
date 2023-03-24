@@ -104,9 +104,9 @@ bool Textbook::checkReviewQuestions() const
   @post     : displays Textbook data in the form:
   "[title_] is written by [author_] for [grade_level] students. Subject: [subject]. [It has/ It does not have] review questions. Page Count: [page_count_]. [It is / It is not] available digitally.\n" 
 */ 
-void Textbook::display()
+void Textbook::display() const
 {
-  std::cout << getTitle() << " is written by " << getAuthor() << "for " << grade_level_ << " students. Subject: " << subject_ << ". ";
+  std::cout << getTitle() << " is written by " << getAuthor() << "for " << getGradeLevel() << " students. Subject: " << subject_ << ". ";
   if(has_review_questions_)
   {
     std::cout << "It has review questions. ";
@@ -132,7 +132,7 @@ void Textbook::display()
   @param    : a reference to a string key to match the subject of the Textbook
   @post     : calls display() if the key argument is equal to subject_ (e.g. "mathematics")   
   */
-void Textbook::displayFilter(const std::string &key)
+void Textbook::displayFilter(const std::string &key) const
 {
   if(key == subject_)
   {

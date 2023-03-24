@@ -3,7 +3,6 @@
 #include "Book.hpp"
 #include <regex>
 
-
 class Manual : public Book
 {
   public:
@@ -93,7 +92,7 @@ Manual();
     @post     : displays Manual data in the form:
     "[title_] is written by [author] company for device: [device]. Website: [website / NONE]. Page Count: [page_count_]. [It is / It is not] available digitally.\n"  
     */  
-    virtual void display() override;
+    virtual void display() const override;
     /**
   EXAMPLE:
   All Freezer with IQ-Touch Owner Guide is written by ElectroLux company for device: Refrigerator. Website: https://www.electroluxappliances.com/. Page Count: 67. It is available digitally.
@@ -103,7 +102,7 @@ Manual();
     @param    : a reference to a string key to match the device of the Manual
     @post     : calls display() if the key argument is equal to device_ (e.g. "Oven")   
     */
-    virtual void displayFilter(const std::string &key) override;
+    virtual void displayFilter(const std::string &key) const override;
     /**
     - IMPORTANT: the device field in the input file contains both the device type and model (e.g. "Refrigerator-EI32AF80QS"). The device key here will only match the type (e.g, "Refrigerator", the string before the "-"), not the model number.
     */
