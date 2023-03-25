@@ -6,6 +6,10 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include "Novel.hpp"
+#include "Textbook.hpp"
+#include "Manual.hpp"
 
 class LibraryRecord : public ArrayBag<Book*>{
   public:

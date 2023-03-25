@@ -3,9 +3,57 @@
 
 /** default constructor**/
 LibraryRecord::LibraryRecord() : ArrayBag<Book*>(){}
-LibraryRecord::LibraryRecord(const std::string& name_){
-    std::ifstream nov;
+LibraryRecord::LibraryRecord(const std::string& name){
+  std::string nove;
+  std::ifstream file(name);
+  std::getline(file, nove);
+  while (file)
+  {
+    std::string title_v1,author_v2,page_count_v3,is_digital_v4,genre_v5,subject_v6,grade_level_v7,has_film_adaptation_v8,has_review_questions_v9,device_model_v10,website_v11,book_type_v12;
+    std::getline(file, title_v1, ',');
+    std::getline(file, author_v2, ',');
+    std::getline(file, page_count_v3, ',');
+    std::getline(file, is_digital_v4, ',');
+    std::getline(file, genre_v5, ',');
+    std::getline(file, subject_v6, ',');
+    std::getline(file, grade_level_v7, ',');
+    std::getline(file, has_film_adaptation_v8, ',');
+    std::getline(file, has_review_questions_v9, ',');
+    std::getline(file, device_model_v10, ',');
+    std::getline(file, website_v11, ',');
+    std::getline(file, book_type_v12, '\n');
+
+    grade_level grade_level;
+
+      if(grade_level_v7 == "NONE"){
+    grade_level = NONE;
+  }
+  else if(grade_level_v7 == "ELEMENTARY"){
+    grade_level = ELEMENTARY;
+  }
+  else if(grade_level_v7 == "JUNIOR HIGH"){
+    grade_level = JUNIOR_HIGH;
+  }
+  else if (grade_level_v7 == "HIGH_SCHOOL"){
+    grade_level = HIGH_SCHOOL;
+  }
+  else {
+    grade_level = COLLEGE;
+  }
     
+    if (book_type_v12 == "1") {
+      Book* data_for_novel = new  Novel(title_v1,author_v2,stoi(page_count_v3), genre_v5, stoi(is_digital_v4), stoi(has_film_adaptation_v8));
+      checkIn(data_for_novel);
+    } 
+    else if (book_type_v12 == "2") {
+      Book* data_for_textbook = new Textbook(title_v1,author_v2,stoi(page_count_v3), genre_v5, stoi(is_digital_v4),grade_level,stoi(has_review_questions_v9));
+      checkIn(data_for_textbook);
+    } 
+    else if (book_type_v12 == "3") {
+      Book* data_for_manual = new Manual(title_v1,author_v2,stoi(page_count_v3),device_model_v10, stoi(is_digital_v4),website_v11);
+checkIn(data_for_manual);
+  }
+}
 }
 
 /** @param:   A reference to a Book object to be checked in
