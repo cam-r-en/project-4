@@ -131,8 +131,8 @@ void Manual::setVisualAid(const bool& aid)
 void Manual::display() const
 {
   std::string m;
-  int n = getDevice().find("-");
-  m = getDevice().substr(0,n);
+  int end = getDevice().find("-");
+  m = getDevice().substr(0,end);
   
   std::cout << getTitle() << " is written by " << getAuthor() << " company for device: " << m << ". ";
   if(has_website_)
@@ -166,7 +166,8 @@ void Manual::display() const
 void Manual::displayFilter(const std::string& key) const
 {
   std::string mod;
-  int nd = getDevice().find("-");
+  int nd = 0;
+  nd = getDevice().find("-");
   mod = getDevice().substr(0,nd);
   if(key == mod)
   {
