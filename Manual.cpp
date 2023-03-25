@@ -139,8 +139,11 @@ void Manual::display() const
   {
     std::cout << "Website: " << getWebsite() << ". ";
   }
-  else if(website_ == "NONE") {
-        std::cout << "Website: NONE. ";
+  else if(website_ == "NONE"){
+    std::cout << "Website: NONE. ";
+  }
+  else{
+    std::cout << "Website: Broken Link. ";
   }
   std::cout << "Page Count: " << getPageCount() << ". ";
   if (isDigital()) 
@@ -162,11 +165,11 @@ void Manual::display() const
 */
 void Manual::displayFilter(const std::string& key) const
 {
-  std::string mod;
+  std::string mode;
   int nd = 0;
   nd = getDevice().find("-");
-  mod = getDevice().substr(0,nd);
-  if(key == mod)
+  mode = getDevice().substr(0,nd);
+  if(key == mode)
   {
     display();
   }
