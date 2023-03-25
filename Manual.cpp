@@ -130,17 +130,20 @@ void Manual::setVisualAid(const bool& aid)
 */  
 void Manual::display() const
 {
-  std::string mod;
-  int nd = getDevice().find("-");
-  mod = getDevice().substr(0,nd);
+  std::string m;
+  int n = getDevice().find("-");
+  m = getDevice().substr(0,n);
   
-  std::cout << getTitle() << " is written by " << getAuthor() << " company for device: " << mod << ". ";
+  std::cout << getTitle() << " is written by " << getAuthor() << " company for device: " << m << ". ";
   if(has_website_)
   {
     std::cout << "Website: " << getWebsite() << ". ";
   }
-  else {
+  else if(website_ == "NONE"){
         std::cout << "Website: NONE. ";
+  }
+  else{
+    std::cout << "Website: Broken Link. ";
   }
   std::cout << "Page Count: " << getPageCount() << ". ";
   if (isDigital()) 
