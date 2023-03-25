@@ -106,7 +106,7 @@ bool Textbook::checkReviewQuestions() const
 */ 
 void Textbook::display() const
 {
-  std::cout << getTitle() << " is written by " << getAuthor() << "for " << getGradeLevel() << " students. Subject: " << subject_ << ". ";
+  std::cout << getTitle() << " is written by " << getAuthor() << " for " << getGradeLevel() << " students. Subject: " << subject_ << ". ";
   if(has_review_questions_)
   {
     std::cout << "It has review questions. ";
